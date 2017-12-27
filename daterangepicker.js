@@ -703,7 +703,7 @@
 
             var html = '<table class="table-condensed">';
             html += '<thead>';
-            html += '<tr>';
+            html += '<tr class="months">';
 
             // add empty cell for week number
             if (this.showWeekNumbers || this.showISOWeekNumbers)
@@ -758,7 +758,7 @@
             }
 
             html += '</tr>';
-            html += '<tr>';
+            html += '<tr class="dow">';
 
             // add week number label
             if (this.showWeekNumbers || this.showISOWeekNumbers)
