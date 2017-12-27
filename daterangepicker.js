@@ -1299,12 +1299,12 @@
 
         clickDate: function(e) {
 
-            if (!$(e.target).hasClass('available')) return;
+            if (!$(e.currentTarget).hasClass('available')) return;
 
-            var title = $(e.target).attr('data-title');
+            var title = $(e.currentTarget).attr('data-title');
             var row = title.substr(1, 1);
             var col = title.substr(3, 1);
-            var cal = $(e.target).parents('.calendar');
+            var cal = $(e.currentTarget).parents('.calendar');
             var date = cal.hasClass('left') ? this.leftCalendar.calendar[row][col] : this.rightCalendar.calendar[row][col];
 
             //
