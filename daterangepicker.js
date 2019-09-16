@@ -55,7 +55,7 @@
         this.autoUpdateInput = true;
         this.alwaysShowCalendars = false;
         this.ranges = {};
-        //this.viewColumnWithEndDate = false;
+        this.viewColumnWithEndDate = false;
 
         this.opens = 'right';
         if (this.element.hasClass('pull-right'))
@@ -278,6 +278,9 @@
 
         if (typeof options.alwaysShowCalendars === 'boolean')
             this.alwaysShowCalendars = options.alwaysShowCalendars;
+
+        if (typeof options.viewColumnWithEndDate === 'boolean')
+            this.viewColumnWithEndDate = options.viewColumnWithEndDate;
 
         // update day names order to firstDay
         if (this.locale.firstDay != 0) {
@@ -555,13 +558,13 @@
                 if (!this.linkedCalendars && (this.endDate.month() != this.startDate.month() || this.endDate.year() != this.startDate.year())) {
                     this.rightCalendar.month = this.endDate.clone().date(2);
                 } else {
-                    // if (viewColumnWithEndDate) {
-                    //     this.leftCalendar.month = this.endDate.clone().date(2).subtract(1, 'month');;
-                    //     this.rightCalendar.month = this.endDate.clone().date(2);
-                    // }
-                    // else {
+                    if (this.viewColumnWithEndDate) {
+                        this.leftCalendar.month = this.endDate.clone().date(2).subtract(1, 'month');;
+                        this.rightCalendar.month = this.endDate.clone().date(2);
+                    }
+                    else {
                         this.rightCalendar.month = this.startDate.clone().date(2).add(1, 'month');
-                    //}
+                    }
                 }
 
             } else {
